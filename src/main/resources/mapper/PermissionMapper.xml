@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzm.springbootsecurity.dao.PermissionDao">
+    <resultMap type="com.xzm.springbootsecurity.entity.PermissionEntity" id="PermissionMapper">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="path" column="path" jdbcType="VARCHAR"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="queryById" resultMap="PermissionMapper">
+        select
+          id, name, path, url
+        from permission
+        where id = #{id}
+    </select>
+
+</mapper>

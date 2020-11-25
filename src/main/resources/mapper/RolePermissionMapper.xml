@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzm.springbootsecurity.dao.RolePermissionDao">
+    <resultMap type="com.xzm.springbootsecurity.entity.RolePermissionEntity" id="RolePermissionMapper">
+        <result property="permission_id" column="permission_id" jdbcType="INTEGER"/>
+        <result property="role_id" column="role_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="queryByRoleId" resultMap="RolePermissionMapper" resultType="java.util.List">
+        select
+          permission_id, role_id
+        from role_permission
+        where role_id = #{role_id}
+    </select>
+
+</mapper>

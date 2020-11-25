@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzm.springbootsecurity.dao.UserRoleDao">
+    <resultMap type="com.xzm.springbootsecurity.entity.UserRoleEntity" id="UserRoleMapper">
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="role_id" column="role_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="quetyByUid" resultMap="UserRoleMapper" resultType="java.util.List">
+        select
+          uid, role_id
+        from user_role
+        where uid = #{uid}
+    </select>
+
+</mapper>
